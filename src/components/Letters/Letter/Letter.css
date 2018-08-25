@@ -1,16 +1,25 @@
 .Letter { 
   font-size: 2em;
-  color: #333;
+  color: #A6C6E3;
   text-align: center;
-  width: 1em;
+  width: 1.75em;
   padding: 10px;
   margin: 5px;
-  border: 1px solid #999;
+  border-left: 3px solid #668dad;
+  border-bottom: 3px solid #668dad;
   border-radius: 5px;
-  background-color: #eee;
+  background-color: #214f7b;
+  box-shadow: 2px -1px 2px #5c7ea0;
+  box-sizing: border-box;
 }
 
 .Guessed {
-  color: #ccc;
-  background-color: #aaa;
+  color: #aaa;
+  background-color: #ccc;
+  border-left: none;
+  border-bottom: none;
+  border-top: 2px solid #90a8c2;
+  border-right: 2px solid #90a8c2;
+  padding: 10px;
+  box-shadow: inset 1px -1px 15px #8aa4bf;
 }

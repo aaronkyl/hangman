@@ -2,4 +2,8 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  max-width: 1000px;
+  margin: auto;
+  min-height: 100vh;
+  background-color: #b1c4d8;
 }
