@@ -88,11 +88,18 @@ class Hangman extends Component {
     return letters
   }
 
+  letterGuessHandler = (letter) => {
+    console.log("letterGuessHandler()")
+    let letters = this.state.letters
+    letters[letter] = true
+    this.setState({letters: letters})
+  }
+
   render() {
     console.log("[Hangman.js] - render()")
     let hangman = (
         <React.Fragment>
-          <Letters letters={this.state.letters} />
+          <Letters letters={this.state.letters} clicked={this.letterGuessHandler} />
           <Word letters={this.state.currentWordLetters} />
         </React.Fragment>
     )
