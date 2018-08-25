@@ -7,7 +7,7 @@ class Hangman extends Component {
   state= {
     words: [],
     currentWordIndex: 0,
-    currentWordLetters: [{letter: 'a', guessed: true}, {letter: 'b', guessed: false}],
+    currentWordLetters: [],
     gameLength: 10
   }
 
@@ -20,7 +20,14 @@ class Hangman extends Component {
       })
       .then(allWords => {
         const words = this.selectWords(allWords)
-        this.setState({words: words})
+        return words
+      })
+      .then(words => {
+        const splitWord = this.initializeWord(words[0])
+        this.setState({
+          words: words,
+          currentWordLetters: splitWord
+        })
       })
       .catch(error => {
         console.log(error)
@@ -34,6 +41,14 @@ class Hangman extends Component {
       words.push(allWords[Math.floor(Math.random() * l)])
     }
     return words
+  }
+
+  initializeWord = (word) => {
+    let splitWord = word.split('')
+    splitWord = splitWord.map(letter => {
+      return {letter: letter, guessed: false}
+    })
+    return splitWord
   }
 
   render() {
