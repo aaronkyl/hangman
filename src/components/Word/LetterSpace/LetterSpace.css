@@ -1,0 +1,7 @@
+.LetterSpace {
+  min-width: 1.5em;
+  text-align: center;
+  border-bottom: 2px solid black;
+  margin: 0 5px;
+  font-size: 2em;
+}
