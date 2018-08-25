@@ -165,7 +165,7 @@ class Hangman extends Component {
     console.log("[Hangman.js] - render()")
     const hangman = (
       <React.Fragment>
-        <Graphic />
+        <Graphic incorrectGuesses={this.state.playerIncorrectGuesses} />
         <Letters 
           letters={this.state.letters} 
           clicked={this.letterGuessHandler} 
