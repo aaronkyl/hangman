@@ -7,6 +7,7 @@ import Letters from '../../components/Letters/Letters'
 import Graphic from '../../components/Graphic/Graphic'
 
 import Spinner from '../../UI/Spinner/Spinner'
+import Button from '../../UI/Button/Button'
 
 import classes from './Hangman.css'
 
@@ -15,6 +16,7 @@ class Hangman extends Component {
     letters: {},
     gameLength: 10,
     incorrectGuessesAllowed: 6,
+    gameOver: false,
     words: [],
     currentWordIndex: 0,
     currentWordLetters: [],
@@ -35,7 +37,7 @@ class Hangman extends Component {
         return words
       })
       .then(words => {
-        const wordLetters = this.initializeWord(words[0])
+        const wordLetters = this.initializeWord(words[this.state.currentWordIndex])
         const letters = this.initializeLetters()
         this.setState({
           words: words,
@@ -125,7 +127,9 @@ class Hangman extends Component {
 
   determineWordStatus = () => {
     if (this.wordLost()) {
-      this.setState({currentWordActive: false})
+      this.setState({
+        currentWordActive: false,
+      })
     } else if (this.wordWon()) {
       this.setState({wordWon: true})
     }
@@ -139,29 +143,44 @@ class Hangman extends Component {
     return !this.state.currentWordLetters.some(el => el.guessed === false)
   }
 
-  render() {
-    let message = null
-    if  (!this.state.currentWordActive) {
-      message = <p>You lost</p>
-    } else if (this.state.wordWon) {
-      message = <p>You won</p>
+  nextWord = () => {
+    if (!this.state.gameOver) {
+      const nextWordIndex = this.state.currentWordIndex + 1
+      const letters = this.initializeLetters()
+      const nextWordLetters = this.initializeWord(this.state.words[nextWordIndex])
+      this.setState({
+        letters: letters,
+        currentWordIndex: nextWordIndex,
+        currentWordLetters: nextWordLetters,
+        currentWordActive: true,
+        wordWon: false,
+        playerIncorrectGuesses: 0
+      })
+    } else {
+      this.state({gameOver: true})
     }
+  }
+
+  render() {
     console.log("[Hangman.js] - render()")
-    let hangman = (
-        <React.Fragment>
-          <Graphic />
-          <Letters 
-            letters={this.state.letters} 
-            clicked={this.letterGuessHandler} 
-            selectable={this.state.currentWordActive} 
-          />
-          <Word 
-            letters={this.state.currentWordLetters} 
-            wordActive={this.state.currentWordActive}
-          />
-          {message}
-        </React.Fragment>
+    const hangman = (
+      <React.Fragment>
+        <Graphic />
+        <Letters 
+          letters={this.state.letters} 
+          clicked={this.letterGuessHandler} 
+          selectable={this.state.currentWordActive} 
+        />
+        <Word 
+          letters={this.state.currentWordLetters} 
+          wordActive={this.state.currentWordActive}
+        />
+        <Button 
+          status={!this.state.currentWordActive || this.state.wordWon} 
+          clicked={this.nextWord}>Next Word</Button>
+      </React.Fragment>
     )
+
     return (
       <div className={classes.Hangman}>
         <h1>HANGMAN</h1>
