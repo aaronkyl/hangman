@@ -2,12 +2,14 @@ import React, { Component } from 'react'
 import axios from 'axios'
 
 import Word from '../../components/Word/Word'
+import Letters from '../../components/Letters/Letters'
 
 class Hangman extends Component {
   state= {
     words: [],
     currentWordIndex: 0,
     currentWordLetters: [],
+    letters: {},
     gameLength: 10
   }
 
@@ -24,9 +26,11 @@ class Hangman extends Component {
       })
       .then(words => {
         const splitWord = this.initializeWord(words[0])
+        const letters = this.initializeLetters()
         this.setState({
           words: words,
-          currentWordLetters: splitWord
+          currentWordLetters: splitWord,
+          letters: letters
         })
       })
       .catch(error => {
@@ -46,9 +50,41 @@ class Hangman extends Component {
   initializeWord = (word) => {
     let splitWord = word.split('')
     splitWord = splitWord.map(letter => {
-      return {letter: letter, guessed: false}
+      return {letter: letter.toUpperCase(), guessed: false}
     })
     return splitWord
+  }
+
+  initializeLetters = () => {
+    const letters = {
+      'A': false,
+      'B': false,
+      'C': false,
+      'D': false,
+      'E': false,
+      'F': false,
+      'G': false,
+      'H': false,
+      'I': false,
+      'J': false,
+      'K': false,
+      'L': false,
+      'M': false,
+      'N': false,
+      'O': false,
+      'P': false,
+      'Q': false,
+      'R': false,
+      'S': false,
+      'T': false,
+      'U': false,
+      'V': false,
+      'W': false,
+      'X': false,
+      'Y': false,
+      'Z': false
+    }
+    return letters
   }
 
   render() {
@@ -56,7 +92,7 @@ class Hangman extends Component {
     return (
       <React.Fragment>
         <h1>HANGMAN</h1>
-        <p>div of letters</p>
+        <Letters letters={this.state.letters} />
         <Word letters={this.state.currentWordLetters} />
       </React.Fragment>
     )

@@ -1,0 +1,9 @@
+.Letter { 
+  font-size: 2em;
+  padding: 10px;
+  margin: 5px;
+}
+
+.Guessed {
+  background-color: red;
+}
