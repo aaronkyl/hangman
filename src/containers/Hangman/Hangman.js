@@ -153,8 +153,12 @@ class Hangman extends Component {
           <Letters 
             letters={this.state.letters} 
             clicked={this.letterGuessHandler} 
-            selectable={this.state.currentWordActive} />
-          <Word letters={this.state.currentWordLetters} />
+            selectable={this.state.currentWordActive} 
+          />
+          <Word 
+            letters={this.state.currentWordLetters} 
+            wordActive={this.state.currentWordActive}
+          />
           {message}
         </React.Fragment>
     )

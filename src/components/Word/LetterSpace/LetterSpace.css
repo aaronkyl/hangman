@@ -5,3 +5,7 @@
   margin: 0 5px;
   font-size: 2em;
 }
+
+.WordFailed {
+  color: #ccc;
+}
