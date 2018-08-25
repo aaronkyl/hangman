@@ -1,16 +1,17 @@
 .Letter { 
   font-size: 2em;
-  color: #A6C6E3;
+  color: #edf7ff;
   text-align: center;
   width: 1.75em;
   padding: 10px;
   margin: 5px;
-  border-left: 3px solid #668dad;
-  border-bottom: 3px solid #668dad;
+  border-left: 3px solid #bad2e6;
+  border-bottom: 3px solid #97bdda;
   border-radius: 5px;
   background-color: #214f7b;
-  box-shadow: 2px -1px 2px #5c7ea0;
+  box-shadow: 2px -1px 2px #4686ca;
   box-sizing: border-box;
+  cursor: pointer;
 }
 
 .Guessed {
@@ -18,8 +19,8 @@
   background-color: #ccc;
   border-left: none;
   border-bottom: none;
-  border-top: 2px solid #90a8c2;
-  border-right: 2px solid #90a8c2;
+  border-top: 3px solid #90a8c2;
+  border-right: 3px solid #90a8c2;
   padding: 10px;
   box-shadow: inset 1px -1px 15px #8aa4bf;
 }

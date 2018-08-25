@@ -4,29 +4,30 @@
   min-width: 400px;
   box-sizing: border-box;
   position: relative;
-  background-color: #dde5f4;
+  background-color: transparent;
+  z-index: 10;
 }
 
 .Snowman {
-  height: 200px; /*130px;*/
-  width: 100px; /*76px;*/
-  left: 50px;
-  bottom: 30px;
+  height: 275px; /*130px;*/
+  width: 175px; /*76px;*/
+  right: 20px;
+  bottom: 0;
   background-image: url('../../assets/snowman.svg');
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: bottom;
   background-size: contain;
   position: absolute;
 }
 
 .SnowmanMelted {
-  height: 75px; /*50px;*/
-  width: 125px; /*100px;*/
-  left: 40px;
-  bottom: 30px;
+  height: 100px; /*50px;*/
+  width: 250px; /*100px;*/
+  right: 0;
+  bottom: -20px;
   background-image: url('../../assets/snowman_melted.svg');
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: bottom;
   background-size: contain;
   position: absolute;
 }
@@ -38,8 +39,8 @@
   background-repeat: no-repeat;
   background-position: center;
   position: absolute;
-  right: 50px;
-  top: 50px;
+  left: 20px;
+  top: 0px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -54,7 +55,8 @@
   background-repeat: no-repeat;
   background-position: top;
   position: absolute;
-  right: 90px;
+  left: 60px;
+  top: -52px;
 }
 
 .SunRay1 {
