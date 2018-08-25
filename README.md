@@ -3,5 +3,6 @@ Hangman game built with React
 
 ### Wireframe
 
-
 Preview with notes: https://wireframe.cc/PuHQGE
+
+![desktop mockup](readme_images/moskup_desktop.png)
