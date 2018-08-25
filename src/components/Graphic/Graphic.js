@@ -10,11 +10,12 @@ const graphic = (props) => {
   }
 
   const snowmanClasses = props.currentWordActive ? classes.Snowman : classes.SnowmanMelted
+  const guessesRemaining = props.incorrectGuessesAllowed - props.incorrectGuesses
 
   return (
   <div className={classes.Graphic}>
     <div className={snowmanClasses}></div>
-    <div className={classes.SunBody}></div>
+    <div className={classes.SunBody}>{guessesRemaining}</div>
     {sunRays}
   </div>)
 }

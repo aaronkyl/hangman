@@ -166,7 +166,8 @@ class Hangman extends Component {
     const hangman = (
       <React.Fragment>
         <Graphic 
-          incorrectGuesses={this.state.playerIncorrectGuesses} 
+          incorrectGuesses={this.state.playerIncorrectGuesses}
+          incorrectGuessesAllowed={this.state.incorrectGuessesAllowed} 
           currentWordActive={this.state.currentWordActive}
         />
         <Letters 
