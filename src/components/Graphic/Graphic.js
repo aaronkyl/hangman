@@ -9,8 +9,11 @@ const graphic = (props) => {
     sunRays.push(<div className={activeClasses}></div>)
   }
 
+  const snowmanClasses = props.currentWordActive ? classes.Snowman : classes.SnowmanMelted
+
   return (
   <div className={classes.Graphic}>
+    <div className={snowmanClasses}></div>
     <div className={classes.SunBody}></div>
     {sunRays}
   </div>)

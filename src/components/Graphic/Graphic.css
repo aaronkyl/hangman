@@ -4,6 +4,31 @@
   min-width: 400px;
   box-sizing: border-box;
   position: relative;
+  background-color: lightgrey;
+}
+
+.Snowman {
+  height: 200px; /*130px;*/
+  width: 100px; /*76px;*/
+  left: 50px;
+  bottom: 30px;
+  background-image: url('../../assets/snowman.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  position: absolute;
+}
+
+.SnowmanMelted {
+  height: 75px; /*50px;*/
+  width: 125px; /*100px;*/
+  left: 40px;
+  bottom: 30px;
+  background-image: url('../../assets/snowman_melted.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  position: absolute;
 }
 
 .SunBody {
