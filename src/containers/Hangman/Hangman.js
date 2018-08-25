@@ -7,11 +7,15 @@ import Spinner from '../../UI/Spinner/Spinner'
 
 class Hangman extends Component {
   state= {
+    letters: {},
+    gameLength: 10,
+    incorrectGuessesAllowed: 6,
     words: [],
     currentWordIndex: 0,
     currentWordLetters: [],
-    letters: {},
-    gameLength: 10
+    currentWordActive: true,
+    wordWon: false,
+    playerIncorrectGuesses: 0
   }
 
   componentDidMount() {
@@ -26,11 +30,11 @@ class Hangman extends Component {
         return words
       })
       .then(words => {
-        const splitWord = this.initializeWord(words[0])
+        const wordLetters = this.initializeWord(words[0])
         const letters = this.initializeLetters()
         this.setState({
           words: words,
-          currentWordLetters: splitWord,
+          currentWordLetters: wordLetters,
           letters: letters
         })
       })
@@ -41,6 +45,9 @@ class Hangman extends Component {
   }
 
   selectWords = (allWords) => {
+    // Selects gameLength-worth of random words from the words reutrned by the API.
+    // Randomizing which words are selected since API returns same words in alphabetical
+    // order each time it is called
     const words = []
     for (let i = 0, l = allWords.length; i < this.state.gameLength; i++) {
       words.push(allWords[Math.floor(Math.random() * l)])
@@ -89,18 +96,60 @@ class Hangman extends Component {
   }
 
   letterGuessHandler = (letter) => {
-    console.log("letterGuessHandler()")
-    let letters = this.state.letters
+    const letters = this.state.letters
+    let incorrectGuesses = this.state.playerIncorrectGuesses 
+    // Update letters tracker to show letter has been guessed
     letters[letter] = true
-    this.setState({letters: letters})
+    // Update current word's letters to show guessed letter if in word
+    // and update incorrect guess number if it is not in the word
+    const currentWordLetters = this.state.currentWordLetters
+    if (currentWordLetters.some(el => el.letter === letter)) {
+      currentWordLetters.map(el => {
+        if (el.letter === letter) el.guessed = true
+        return el
+      })
+    } else {
+      incorrectGuesses += 1
+    }    
+    this.setState({
+      letters: letters,
+      currentWordLetters: currentWordLetters,
+      playerIncorrectGuesses: incorrectGuesses
+    }, () => this.determineWordStatus())
+  }
+
+  determineWordStatus = () => {
+    if (this.wordLost()) {
+      this.setState({currentWordActive: false})
+    } else if (this.wordWon()) {
+      this.setState({wordWon: true})
+    }
+  }
+
+  wordLost = () => {
+    return this.state.playerIncorrectGuesses === this.state.incorrectGuessesAllowed
+  }
+
+  wordWon = () => {
+    return !this.state.currentWordLetters.some(el => el.guessed === false)
   }
 
   render() {
+    let message = null
+    if  (!this.state.currentWordActive) {
+      message = <p>You lost</p>
+    } else if (this.state.wordWon) {
+      message = <p>You won</p>
+    }
     console.log("[Hangman.js] - render()")
     let hangman = (
         <React.Fragment>
-          <Letters letters={this.state.letters} clicked={this.letterGuessHandler} />
+          <Letters 
+            letters={this.state.letters} 
+            clicked={this.letterGuessHandler} 
+            selectable={this.state.currentWordActive} />
           <Word letters={this.state.currentWordLetters} />
+          {message}
         </React.Fragment>
     )
     return (

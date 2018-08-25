@@ -7,7 +7,14 @@ const letters = (props) => {
   console.log("[Letters.js]")
   const letters = Object.keys(props.letters)
     .map(letter => {
-      return <Letter key={letter} letter={letter} guessed={props.letters[letter]} clicked={props.clicked} />
+      return (
+        <Letter 
+          key={letter} 
+          letter={letter} 
+          guessed={props.letters[letter]} 
+          clicked={props.clicked} 
+          selectable={props.selectable} />
+      )
     })
   return <div className={classes.Letters}>{letters}</div>
 }

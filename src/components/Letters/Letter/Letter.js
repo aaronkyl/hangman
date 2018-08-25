@@ -2,9 +2,12 @@ import React from 'react'
 import classes from './Letter.css'
 
 const letter = (props) => {
-  const appliedClasses = props.guessed ? [classes.Letter, classes.Guessed] : [classes.Letter]
+  const letterActive = !props.guessed && props.selectable
+  const appliedClasses = !letterActive ? [classes.Letter, classes.Guessed] : [classes.Letter]
+  const clickFunction = letterActive ? () => props.clicked(props.letter) : null
+  
   return (
-    <div className={appliedClasses.join(' ')} onClick={() => props.clicked(props.letter)}>
+    <div className={appliedClasses.join(' ')} onClick={clickFunction}>
       {props.letter}
     </div>
   )
