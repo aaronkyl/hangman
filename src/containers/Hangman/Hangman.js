@@ -186,7 +186,7 @@ class Hangman extends Component {
 
     return (
       <div className={classes.Hangman}>
-        <h1>HANGMAN</h1>
+        <h1>SNOWMAN SAVER</h1>
         <PlayArea>
           {this.state.words.length ? hangman : <Spinner />}
         </PlayArea>
