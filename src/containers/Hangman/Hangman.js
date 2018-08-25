@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 
+import PlayArea from '../../components/PlayArea/PlayArea'
 import Word from '../../components/Word/Word'
 import Letters from '../../components/Letters/Letters'
 import Spinner from '../../UI/Spinner/Spinner'
@@ -153,10 +154,10 @@ class Hangman extends Component {
         </React.Fragment>
     )
     return (
-      <React.Fragment>
+      <PlayArea>
         <h1>HANGMAN</h1>
         {this.state.words.length ? hangman : <Spinner />}
-      </React.Fragment>
+      </PlayArea>
     )
   }
 }
