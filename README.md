@@ -5,4 +5,4 @@ Hangman game built with React
 
 Preview with notes: https://wireframe.cc/PuHQGE
 
-![desktop mockup](readme_images/moskup_desktop.png)
+![desktop mockup](readme_images/mockup_desktop.png)
