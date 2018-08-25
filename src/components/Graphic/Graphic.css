@@ -1,0 +1,7 @@
+.Graphic {
+  width: 45%;
+  height: 300px;
+  min-width: 400px;
+  box-sizing: border-box;
+  background-color: grey;
+}

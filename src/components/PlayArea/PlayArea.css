@@ -1,3 +1,10 @@
 .PlayArea {
-  width: 45%;
+  width: 100%;
+  max-width: 900px;
+  padding: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  box-sizing: border-box;
 }

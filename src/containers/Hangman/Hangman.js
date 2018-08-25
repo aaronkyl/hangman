@@ -4,7 +4,11 @@ import axios from 'axios'
 import PlayArea from '../../components/PlayArea/PlayArea'
 import Word from '../../components/Word/Word'
 import Letters from '../../components/Letters/Letters'
+import Graphic from '../../components/Graphic/Graphic'
+
 import Spinner from '../../UI/Spinner/Spinner'
+
+import classes from './Hangman.css'
 
 class Hangman extends Component {
   state= {
@@ -145,6 +149,7 @@ class Hangman extends Component {
     console.log("[Hangman.js] - render()")
     let hangman = (
         <React.Fragment>
+          <Graphic />
           <Letters 
             letters={this.state.letters} 
             clicked={this.letterGuessHandler} 
@@ -154,10 +159,12 @@ class Hangman extends Component {
         </React.Fragment>
     )
     return (
-      <PlayArea>
+      <div className={classes.Hangman}>
         <h1>HANGMAN</h1>
-        {this.state.words.length ? hangman : <Spinner />}
-      </PlayArea>
+        <PlayArea>
+          {this.state.words.length ? hangman : <Spinner />}
+        </PlayArea>
+      </div>
     )
   }
 }
