@@ -1,7 +1,52 @@
 .Graphic {
   width: 45%;
-  height: 300px;
+  height: 350px;
   min-width: 400px;
   box-sizing: border-box;
-  background-color: grey;
+  position: relative;
+}
+
+.SunBody {
+  height: 133px;
+  width: 133px;
+  background-image: url('../../assets/sunbody.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  right: 50px;
+  top: 50px;
+}
+
+.SunRay {
+  height: 237px;
+  width: 52px;
+  background-image: url('../../assets/sunray.svg');
+  background-repeat: no-repeat;
+  background-position: top;
+  position: absolute;
+  right: 90px;
+}
+
+.SunRay1 {
+  transform: rotate(0deg);
+}
+
+.SunRay2 {
+  transform: rotate(60deg);
+}
+
+.SunRay3 {
+  transform: rotate(120deg);
+}
+
+.SunRay4 {
+  transform: rotate(180deg);
+}
+
+.SunRay5 {
+  transform: rotate(2400deg);
+}
+
+.SunRay6 {
+  transform: rotate(300deg);
 }
