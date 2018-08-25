@@ -3,6 +3,7 @@ import axios from 'axios'
 
 import Word from '../../components/Word/Word'
 import Letters from '../../components/Letters/Letters'
+import Spinner from '../../UI/Spinner/Spinner'
 
 class Hangman extends Component {
   state= {
@@ -89,11 +90,16 @@ class Hangman extends Component {
 
   render() {
     console.log("[Hangman.js] - render()")
+    let hangman = (
+        <React.Fragment>
+          <Letters letters={this.state.letters} />
+          <Word letters={this.state.currentWordLetters} />
+        </React.Fragment>
+    )
     return (
       <React.Fragment>
         <h1>HANGMAN</h1>
-        <Letters letters={this.state.letters} />
-        <Word letters={this.state.currentWordLetters} />
+        {this.state.words.length ? hangman : <Spinner />}
       </React.Fragment>
     )
   }
