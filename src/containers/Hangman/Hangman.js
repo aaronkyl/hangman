@@ -24,15 +24,16 @@ class Hangman extends Component {
     currentWordLetters: [],
     currentWordActive: true,
     wordWon: false,
-    playerIncorrectGuesses: 0
+    playerIncorrectGuesses: 0,
+    score: 0
   }
 
   componentDidMount() {
     console.log("[Hangman.js] - componentDidMount()")
     const difficulty = this.props.location.state.difficulty > 0 ? '?difficulty=' + this.props.location.state.difficulty : ''
     const user = this.props.location.state.username ? this.props.location.state.username : 'Jane Smith'
-    console.log('/api/getWords')
-    axios.get('/api/getWords' + difficulty)
+    console.log('/api/words')
+    axios.get('/api/words' + difficulty)
       .then(response => {
         // response.data is a newline separated string
         return response.data.split("\n")
@@ -112,6 +113,7 @@ class Hangman extends Component {
   letterGuessHandler = (letter) => {
     const letters = this.state.letters
     let incorrectGuesses = this.state.playerIncorrectGuesses 
+    let score = this.state.score
     // Update letters tracker to show letter has been guessed
     letters[letter] = true
     // Update current word's letters to show guessed letter if in word
@@ -124,11 +126,13 @@ class Hangman extends Component {
       })
     } else {
       incorrectGuesses += 1
+      score += 1
     }    
     this.setState({
       letters: letters,
       currentWordLetters: currentWordLetters,
-      playerIncorrectGuesses: incorrectGuesses
+      playerIncorrectGuesses: incorrectGuesses,
+      score: score
     }, () => this.determineWordStatus())
   }
 
@@ -154,8 +158,8 @@ class Hangman extends Component {
   }
 
   nextWord = () => {
-    if (!this.state.gameOver) {
-      const nextWordIndex = this.state.currentWordIndex + 1
+    const nextWordIndex = this.state.currentWordIndex + 1
+    if (!this.state.gameOver && nextWordIndex !== this.state.gameLength) {
       const letters = this.initializeLetters()
       const nextWordLetters = this.initializeWord(this.state.words[nextWordIndex])
       this.setState({
@@ -171,13 +175,28 @@ class Hangman extends Component {
     }
   }
 
+  viewScores = () => {
+    const scoreData = {
+      user: this.state.user,
+      score: this.state.score
+    }
+
+    axios.post('https://snowmansaver-fe545.firebaseio.com/scores.json', scoreData)
+      .then(response => {
+        this.props.history.replace({
+          pathname: '/scores'
+        })
+      })
+  }
+
   render() {
     console.log("[Hangman.js] - render()")
-
+    const buttonClickAction = this.state.gameOver ? this.viewScores : this.nextWord
+    const buttonWording = this.state.gameOver ? "SUBMIT SCORE" : "NEXT WORD"
     const selectLetterOrButton = (!this.state.currentWordActive || this.state.wordWon 
       ? <Button 
           status={!this.state.currentWordActive || this.state.wordWon} 
-          clicked={this.nextWord}>NEXT WORD</Button> 
+          clicked={buttonClickAction}>{buttonWording}</Button> 
       : <p className={classes.SelectLetter}>SELECT A LETTER!</p>
     )
 

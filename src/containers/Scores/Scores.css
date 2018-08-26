@@ -1,0 +1,50 @@
+.Scores {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  background-color: #00000070;
+  width: 100%;
+  box-sizing: border-box;
+  height: 500px;
+  z-index: 10;
+}
+
+.Scores h2 {
+  color: white;
+  margin-bottom: 0;
+  font-weight: 400;
+}
+
+.Table {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.TBody, .THead {
+  width: 60%;
+  min-width: 500px;
+  box-sizing: border-box;
+  overflow: scroll;
+}
+
+.THead {
+  display: flex;
+  color: white;
+}
+
+.THead h3:first-child {
+  width: 40%;
+  letter-spacing: .1em;
+  text-align: right;
+  font-weight: 400;
+}
+
+.THead h3:not(:first-child) {
+  width: 60%;
+  letter-spacing: .1em;
+  font-weight: 400;
+}

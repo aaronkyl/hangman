@@ -1,5 +1,5 @@
 # Snowman Saver
-Hangman game built with React
+Hangman game built with React, Express, Nodejs, and Firebase for the database. FERN stack?
 
 ## Installation
 

@@ -8,7 +8,7 @@ app.use(express.static(path.join(__dirname, 'build')))
 
 // API to get words from words API and avoid CORS issue that occures
 // when this external API is queried directly from the React app
-app.get('/api/getWords', (req, res) => {
+app.get('/api/words', (req, res) => {
   const difficulty = req.query.difficulty > 0 ? '?difficulty=' + req.query.difficulty : ''
   axios.get('https://app.linkedin-reach.io/words' + difficulty)
     .then(response => {

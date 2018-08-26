@@ -1,0 +1,21 @@
+.Score {
+  border: 2px solid #fff;
+  border-radius: 5px;
+  background-color: #ffffffcc;
+  color: #214f7b;
+  padding: .2em;
+  margin: .5em;
+  font-size: 1.5em;
+  display: flex;
+  box-sizing: border-box;
+}
+
+.User {
+  width: 70%;
+  letter-spacing: .1em;
+}
+
+.UserScore {
+  width: 30%;
+  text-align: left;
+}
