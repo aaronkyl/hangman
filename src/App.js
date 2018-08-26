@@ -8,18 +8,6 @@ import CodedBy from './components/CodedBy/CodedBy'
 import classes from './App.css'
 
 class App extends Component {
-  state = {
-    user: '',
-    difficulty: null
-  }
-
-  beginGameHandler = (username, difficulty) => {
-    this.setState({
-      user: username,
-      difficulty: difficulty
-    })
-  }
-
   render() {
     return (
       <div className={classes.App}>

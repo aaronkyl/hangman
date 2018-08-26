@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom'
 
 import Button from '../../UI/Button/Button'
 
@@ -18,6 +19,17 @@ class LandingPage extends Component {
     this.setState({difficulty: difficulty})
   }
 
+  beginGameHandler = () => {
+    const queryParams = []
+    for (let i in this.state) {
+      queryParams.push(encodeURIComponent(i) + '=' + encodeURIComponent(this.state[i]))
+    }
+    this.props.history.push({
+      pathname: '/game',
+      search: queryParams.join('&')
+    })
+  }
+
   render() {
     console.log("[LandingPage.js] - render()")
     return (
@@ -33,10 +45,10 @@ class LandingPage extends Component {
         </div>
         <Button 
           status={this.state.username.length > 0}
-          >BEGIN GAME</Button>
+          clicked={this.beginGameHandler}>BEGIN GAME</Button>
       </div>
     )
   }
 }
 
-export default LandingPage
+export default withRouter(LandingPage)

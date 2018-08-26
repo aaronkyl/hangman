@@ -4,17 +4,21 @@
   align-items: center;
   justify-content: center;
   z-index: 5;
+  background-color: #00000099;
+  padding: 2em;
+  border-radius: 10px;
+  margin-top: 5em;
 }
 
 .P {
   width: 100%;
   font-size: 1.5em;
-  color: #214f7b;
+  color: #e8f3fe;
   letter-spacing: .1em;
 }
 
 .Label {
-  color: #214f7b;
+  color: #e8f3fe;
 }
 
 .Username {
@@ -45,7 +49,7 @@
 }
 
 .DifficultyDiv p {
-  color: #214f7b;
+  color: #e8f3fe;
 }
 
 .Difficulty {
@@ -53,7 +57,7 @@
   width: 250px;
   height: 15px;
   border-radius: 5px;   
-  background: #214f7b;
+  background: #e8f3fe;
   outline: none;
   margin: auto 5em;
 }
