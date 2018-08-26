@@ -6,7 +6,7 @@ const graphic = (props) => {
   for (let i = 1; i <= props.incorrectGuesses; i++) {
     const ray = 'SunRay' + i
     const activeClasses = [classes.SunRay, classes[ray]].join(' ')
-    sunRays.push(<div className={activeClasses}></div>)
+    sunRays.push(<div key={ray} className={activeClasses}></div>)
   }
 
   const snowmanClasses = props.currentWordActive || props.wordWon ? classes.Snowman : classes.SnowmanMelted

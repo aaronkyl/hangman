@@ -1,0 +1,77 @@
+.LandingPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+}
+
+.P {
+  width: 100%;
+  font-size: 1.5em;
+  color: #214f7b;
+  letter-spacing: .1em;
+}
+
+.Label {
+  color: #214f7b;
+}
+
+.Username {
+  font-size: 1.5em;
+  padding: .5em;
+  text-align: center;
+  max-width: 10em;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  margin: .5em auto;
+  background-color: #e8f3fe;
+  color: #214f7b;
+  border: none;
+  border-radius: 5px;
+}
+
+.Username:focus {
+  outline: none;
+}
+
+.DifficultyDiv {
+  max-width: 500px;
+  margin: auto;
+  margin-right: 84px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.DifficultyDiv p {
+  color: #214f7b;
+}
+
+.Difficulty {
+  -webkit-appearance: none;
+  width: 250px;
+  height: 15px;
+  border-radius: 5px;   
+  background: #214f7b;
+  outline: none;
+  margin: auto 5em;
+}
+
+.Difficulty::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%; 
+  background: #ff9a2a;
+  cursor: pointer;
+}
+
+.Difficulty::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #ff9a2a;
+  cursor: pointer;
+}
