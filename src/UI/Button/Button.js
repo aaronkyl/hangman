@@ -3,7 +3,7 @@ import classes from './Button.css'
 
 const button = (props) => {
   const activeClasses = [classes.Button]
-  activeClasses.push(props.status ? classes.Active : classes.Inactive)
+  activeClasses.push(props.status ? null : classes.Inactive)
   return (
     <button 
       className={activeClasses.join(' ')} 

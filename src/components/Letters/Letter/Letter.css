@@ -14,6 +14,10 @@
   cursor: pointer;
 }
 
+.Letter:hover {
+  background-color: #123c63;
+}
+
 .Guessed {
   color: #aaa;
   background-color: #ccc;
@@ -23,4 +27,8 @@
   border-right: 3px solid #6d6d6d7a;
   padding: 10px;
   box-shadow: inset 1px -1px 15px #0000004f;
+}
+
+.Guessed:hover {
+  background-color: #ccc;
 }

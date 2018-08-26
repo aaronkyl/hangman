@@ -1,20 +1,33 @@
 .Button {
-  height: 2em;
-  font-size: 1em;
+  min-height: 2em;
+  min-width: 10em;
+  font-size: 1.5em;
   border-radius: 5px;
   z-index: 10;
+  margin: 1em auto;
+  animation: visibility .5s ease-in;
+  cursor: pointer;
+  background-color: #ffbb2a;
+  color: #b35d00;
+  border-left: 3px solid #ff9a2a;
+  border-bottom: 3px solid #ff9a2a;
+  border-top: none;
+  border-right: none;
+  visibility: visible;
+  box-shadow: 2px -1px 4px #00000038;
+  box-sizing: border-box;
 }
 
 .Button:focus {
   outline: none;
 }
 
-.Active {
-  background-color: orange;
-  border: 1px solid darkorange;
+.Button:hover {
+  background-color: #ff9a2a;
+  border-left: 3px solid #e07e0f;
+  border-bottom: 3px solid #e07e0f;
 }
 
 .Inactive {
-  background-color: #ccc;
-  border: 1px solid #777;
+  visibility: hidden;
 }

@@ -5,6 +5,7 @@ import PlayArea from '../../components/PlayArea/PlayArea'
 import Word from '../../components/Word/Word'
 import Letters from '../../components/Letters/Letters'
 import Graphic from '../../components/Graphic/Graphic'
+import CodedBy from '../../components/CodedBy/CodedBy'
 
 import Spinner from '../../UI/Spinner/Spinner'
 import Button from '../../UI/Button/Button'
@@ -185,6 +186,8 @@ class Hangman extends Component {
       </React.Fragment>
     )
 
+    const codedBy = <CodedBy />
+
     return (
       <div className={classes.Hangman}>
         <h1>SNOWMAN SAVER</h1>
@@ -192,6 +195,7 @@ class Hangman extends Component {
         <PlayArea>
           {this.state.words.length ? hangman : <Spinner />}
         </PlayArea>
+        {this.state.words.length ? codedBy : null}
       </div>
     )
   }
