@@ -1,4 +1,4 @@
-# hangman
+# Snowman Saver
 Hangman game built with React
 
 ## Installation
@@ -20,6 +20,8 @@ Preview with notes: https://wireframe.cc/PuHQGE
 
 ## Stretch Goals
 - [X] Graphic showing new parts of the body as incorrect guesses are made
-- [ ] Landing page to record username
-- [ ] Ability to select difficulty on landing page
+- [X] Landing page to record username
+- [X] Ability to select difficulty on landing page
+- [ ] Record number of incorrect guesses and username (lower = better)
+- [ ] After last word, display modal showing score and ask if the user wants to play again
 - [ ] List of high scores
