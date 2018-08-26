@@ -25,3 +25,10 @@ Preview with notes: https://wireframe.cc/PuHQGE
 - [ ] Record number of incorrect guesses and username (lower = better)
 - [ ] After last word, display modal showing score and ask if the user wants to play again
 - [ ] List of high scores
+
+## Project Review
+### Things I learned in this project
+- This was my first experience with CORS issues and it led to a better understanding of basic server security. 
+
+### Issues faced during this project
+- The word-providing API I was instructed to use caused a "No 'Access-Control-Allow-Origin' header is present on the requested resource." error in my browser when I attempted to access it from my localhost. I downloaded a Chrome extension to bypass this, thinking I would not have this problem once I deployed to Firebase. Same issue occurred. I created a simple Express server to act as a middleman to get around this. 
