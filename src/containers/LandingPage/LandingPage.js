@@ -8,7 +8,7 @@ import classes from './LandingPage.css'
 class LandingPage extends Component {
   state = {
     username: '',
-    difficulty: 0
+    difficulty: 5
   }
 
   usernameHandler = (username) => {
@@ -26,7 +26,7 @@ class LandingPage extends Component {
     }
     this.props.history.push({
       pathname: '/game',
-      search: queryParams.join('&')
+      state: this.state
     })
   }
 

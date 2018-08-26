@@ -13,6 +13,8 @@ import classes from './Hangman.css'
 
 class Hangman extends Component {
   state= {
+    user: null,
+    gameDifficulty: null,
     letters: {},
     gameLength: 10,
     incorrectGuessesAllowed: 6,
@@ -27,7 +29,9 @@ class Hangman extends Component {
 
   componentDidMount() {
     console.log("[Hangman.js] - componentDidMount()")
-    axios.get('http://app.linkedin-reach.io/words')
+    const difficulty = this.props.location.state.difficulty > 0 ? '?difficulty=' + this.props.location.state.difficulty : ''
+    const user = this.props.location.state.username ? this.props.location.state.username : 'Jane Smith'
+    axios.get('http://app.linkedin-reach.io/words' + difficulty)
       .then(response => {
         // response.data is a newline separated string
         return response.data.split("\n")
@@ -40,6 +44,8 @@ class Hangman extends Component {
         const wordLetters = this.initializeWord(words[this.state.currentWordIndex])
         const letters = this.initializeLetters()
         this.setState({
+          user: user,
+          gameDifficulty: difficulty,
           words: words,
           currentWordLetters: wordLetters,
           letters: letters
