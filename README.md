@@ -28,7 +28,8 @@ Preview with notes: https://wireframe.cc/PuHQGE
 
 ## Project Review
 ### Things I learned in this project
-- This was my first experience with CORS issues and it led to a better understanding of basic server security. 
+- This was my first experience with CORS issues and it led to a better understanding of basic server security and forced me to create my first React/Express app. My previous React app made no external API calls and so I easily hosted it on Firebase.
+- Credit where credit is due - [this article](https://medium.com/byte-sized-react/hosting-react-and-a-rest-api-with-express-28f7ba5a4cc4) was very helpful in explaining the basics of connecting my React files to my Express server.
 
 ### Issues faced during this project
 - The word-providing API I was instructed to use caused a "No 'Access-Control-Allow-Origin' header is present on the requested resource." error in my browser when I attempted to access it from my localhost. I downloaded a Chrome extension to bypass this, thinking I would not have this problem once I deployed to Firebase. Same issue occurred. I created a simple Express server to act as a middleman to get around this. 

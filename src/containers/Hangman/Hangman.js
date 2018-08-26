@@ -31,7 +31,8 @@ class Hangman extends Component {
     console.log("[Hangman.js] - componentDidMount()")
     const difficulty = this.props.location.state.difficulty > 0 ? '?difficulty=' + this.props.location.state.difficulty : ''
     const user = this.props.location.state.username ? this.props.location.state.username : 'Jane Smith'
-    axios.get('https://app.linkedin-reach.io/words' + difficulty)
+    console.log('/api/getWords')
+    axios.get('/api/getWords' + difficulty)
       .then(response => {
         // response.data is a newline separated string
         return response.data.split("\n")
