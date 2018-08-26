@@ -182,7 +182,7 @@ class Hangman extends Component {
         />
         <Button 
           status={!this.state.currentWordActive || this.state.wordWon} 
-          clicked={this.nextWord}>Next Word</Button>
+          clicked={this.nextWord}>NEXT WORD</Button>
       </React.Fragment>
     )
 

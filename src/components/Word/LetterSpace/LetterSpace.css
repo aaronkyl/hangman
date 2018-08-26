@@ -1,12 +1,12 @@
 .LetterSpace {
   min-width: 1.5em;
   text-align: center;
-  border-bottom: 2px solid #1b232b;
+  border-bottom: 2px solid #0000007d;
   margin: 0 5px;
   font-size: 2em;
-  color: #1b232b;
+  color: #fff;
 }
 
 .WordFailed {
-  color: #fff;
+  color: #ffbb2a;
 }
