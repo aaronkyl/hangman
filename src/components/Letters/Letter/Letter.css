@@ -9,7 +9,7 @@
   border-bottom: 3px solid #97bdda;
   border-radius: 5px;
   background-color: #214f7b;
-  box-shadow: 2px -1px 2px #4686ca;
+  box-shadow: 2px -1px 4px #00000038;
   box-sizing: border-box;
   cursor: pointer;
 }
@@ -19,8 +19,8 @@
   background-color: #ccc;
   border-left: none;
   border-bottom: none;
-  border-top: 3px solid #90a8c2;
-  border-right: 3px solid #90a8c2;
+  border-top: 3px solid #6d6d6d7a;
+  border-right: 3px solid #6d6d6d7a;
   padding: 10px;
-  box-shadow: inset 1px -1px 15px #8aa4bf;
+  box-shadow: inset 1px -1px 15px #0000004f;
 }
