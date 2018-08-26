@@ -1,4 +1,5 @@
-p {
+.P {
+  position: fixed;
   bottom: 0;
   z-index: 5;
   font-size: 1em;
@@ -6,13 +7,14 @@ p {
   color: #aaa;
   letter-spacing: .1em;
   font-weight: light;
+  text-align: center;
 }
 
-a {
+.A {
   text-decoration: none;
   color: #ccc;
 }
 
-a:hover {
+.A:hover {
   color: #ffbb2a;
 }

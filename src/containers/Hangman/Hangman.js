@@ -5,7 +5,6 @@ import PlayArea from '../../components/PlayArea/PlayArea'
 import Word from '../../components/Word/Word'
 import Letters from '../../components/Letters/Letters'
 import Graphic from '../../components/Graphic/Graphic'
-import CodedBy from '../../components/CodedBy/CodedBy'
 
 import Spinner from '../../UI/Spinner/Spinner'
 import Button from '../../UI/Button/Button'
@@ -164,6 +163,14 @@ class Hangman extends Component {
 
   render() {
     console.log("[Hangman.js] - render()")
+
+    const selectLetterOrButton = (!this.state.currentWordActive || this.state.wordWon 
+      ? <Button 
+          status={!this.state.currentWordActive || this.state.wordWon} 
+          clicked={this.nextWord}>NEXT WORD</Button> 
+      : <p className={classes.SelectLetter}>SELECT A LETTER!</p>
+    )
+
     const hangman = (
       <React.Fragment>
         <Graphic 
@@ -180,22 +187,16 @@ class Hangman extends Component {
           letters={this.state.currentWordLetters} 
           wordActive={this.state.currentWordActive}
         />
-        <Button 
-          status={!this.state.currentWordActive || this.state.wordWon} 
-          clicked={this.nextWord}>NEXT WORD</Button>
+        {selectLetterOrButton}
       </React.Fragment>
     )
 
-    const codedBy = <CodedBy />
-
     return (
       <div className={classes.Hangman}>
-        <h1>SNOWMAN SAVER</h1>
         <div className={classes.GroundDiv}></div>
         <PlayArea>
           {this.state.words.length ? hangman : <Spinner />}
         </PlayArea>
-        {this.state.words.length ? codedBy : null}
       </div>
     )
   }
