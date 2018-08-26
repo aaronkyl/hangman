@@ -28,7 +28,7 @@
   width: 60%;
   min-width: 500px;
   box-sizing: border-box;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 .THead {
