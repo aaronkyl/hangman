@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+.Link {
+  text-decoration: none;
+}
+
 .H1 {
   font-family: 'Cinzel Decorative', cursive;
   font-size: 3.5em;
@@ -10,6 +14,11 @@
   text-shadow: -1px 1px #214f7b;
   margin-bottom: .1em;
   z-index: 10;
+}
+
+.H1:hover {
+  color: #214f7b;
+  text-shadow: -1px 1px white;
 }
 
 .App {

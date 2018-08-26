@@ -8,28 +8,108 @@
   z-index: 10;
 }
 
-.Snowman {
-  height: 275px; /*130px;*/
-  width: 175px; /*76px;*/
+.SnowmanDiv {
+  height: 275px;
+  width: 175px;
   right: 20px;
   bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  position: absolute;
+  z-index: 15;
+}
+
+.Snowman {
   background-image: url('../../assets/snowman.svg');
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: contain;
-  position: absolute;
+}
+
+.Snowman0 {
+  height: 275px;
+  width: 175px;
+}
+
+.Snowman1 {
+  height: calc(275px * .9);
+  width: calc(175px * .9);
+}
+
+.Snowman2 {
+  height: calc(275px * .8);
+  width: calc(175px * .8);
+}
+
+.Snowman3 {
+  height: calc(275px * .7);
+  width: calc(175px * .7);
+}
+
+.Snowman4 {
+  height: calc(275px * .6);
+  width: calc(175px * .6);
+}
+
+.Snowman5 {
+  height: calc(275px * .5);
+  width: calc(175px * .5);
 }
 
 .SnowmanMelted {
-  height: 100px; /*50px;*/
-  width: 250px; /*100px;*/
-  right: 0;
+  height: 100px;
+  width: 250px;
   bottom: -20px;
   background-image: url('../../assets/snowman_melted.svg');
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: contain;
   position: absolute;
+}
+
+.PuddleDiv {
+  height: 100px;
+  width: 175px;
+  right: 20px;
+  bottom: -5px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  position: absolute;
+  z-index: 14;
+}
+
+.Puddle {
+  background-image: url('../../assets/puddle.svg');
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: contain;
+}
+
+.Puddle1 {
+  height: calc(100px * .50);
+  width: calc(175px * .50);
+}
+
+.Puddle2 {
+  height: calc(100px * .60);
+  width: calc(175px * .60);
+}
+
+.Puddle3 {
+  height: calc(100px * .70);
+  width: calc(175px * .70);
+}
+
+.Puddle4 {
+  height: calc(100px * .80);
+  width: calc(175px * .80);
+}
+
+.Puddle5 {
+  height: calc(100px * .90);
+  width: calc(175px * .90);
 }
 
 .SunBody {
