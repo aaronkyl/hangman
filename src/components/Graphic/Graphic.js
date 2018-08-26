@@ -9,7 +9,7 @@ const graphic = (props) => {
     sunRays.push(<div className={activeClasses}></div>)
   }
 
-  const snowmanClasses = props.currentWordActive ? classes.Snowman : classes.SnowmanMelted
+  const snowmanClasses = props.currentWordActive || props.wordWon ? classes.Snowman : classes.SnowmanMelted
   const guessesRemaining = props.incorrectGuessesAllowed - props.incorrectGuesses
 
   return (
