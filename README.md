@@ -23,7 +23,7 @@ Preview with notes: https://wireframe.cc/PuHQGE
 - [X] Landing page to record username
 - [X] Ability to select difficulty on landing page
 - [X] Record number of incorrect guesses and username (lower = better)
-- ~~[ ] After last word, display modal showing score and ask if the user wants to play again~~
+- [ ] ~~After last word, display modal showing score and ask if the user wants to play again~~
 - [X] List of high scores
 - [X] After last word, display list of high scores (lower numbers)
 
