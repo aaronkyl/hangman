@@ -18,7 +18,6 @@ class Hangman extends Component {
     letters: {},
     gameLength: 10,
     incorrectGuessesAllowed: 6,
-    gameOver: false,
     words: [],
     currentWordIndex: 0,
     currentWordLetters: [],
@@ -137,6 +136,7 @@ class Hangman extends Component {
   }
 
   determineWordStatus = () => {
+
     if (this.wordLost()) {
       this.setState({
         currentWordActive: false,
@@ -149,6 +149,10 @@ class Hangman extends Component {
     }
   }
 
+  gameOver = () => {
+    return this.state.currentWordIndex + 1 === this.state.gameLength
+  }
+
   wordLost = () => {
     return this.state.playerIncorrectGuesses === this.state.incorrectGuessesAllowed
   }
@@ -159,20 +163,16 @@ class Hangman extends Component {
 
   nextWord = () => {
     const nextWordIndex = this.state.currentWordIndex + 1
-    if (!this.state.gameOver && nextWordIndex !== this.state.gameLength) {
-      const letters = this.initializeLetters()
-      const nextWordLetters = this.initializeWord(this.state.words[nextWordIndex])
-      this.setState({
-        letters: letters,
-        currentWordIndex: nextWordIndex,
-        currentWordLetters: nextWordLetters,
-        currentWordActive: true,
-        wordWon: false,
-        playerIncorrectGuesses: 0
-      })
-    } else {
-      this.state({gameOver: true})
-    }
+    const letters = this.initializeLetters()
+    const nextWordLetters = this.initializeWord(this.state.words[nextWordIndex])
+    this.setState({
+      letters: letters,
+      currentWordIndex: nextWordIndex,
+      currentWordLetters: nextWordLetters,
+      currentWordActive: true,
+      wordWon: false,
+      playerIncorrectGuesses: 0
+    })
   }
 
   viewScores = () => {
@@ -191,8 +191,8 @@ class Hangman extends Component {
 
   render() {
     console.log("[Hangman.js] - render()")
-    const buttonClickAction = this.state.gameOver ? this.viewScores : this.nextWord
-    const buttonWording = this.state.gameOver ? "SUBMIT SCORE" : "NEXT WORD"
+    const buttonClickAction = this.gameOver() ? this.viewScores : this.nextWord
+    const buttonWording = this.gameOver() ? "SUBMIT SCORE" : "NEXT WORD"
     const selectLetterOrButton = (!this.state.currentWordActive || this.state.wordWon 
       ? <Button 
           status={!this.state.currentWordActive || this.state.wordWon} 
