@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   margin-top: 50px;
+  padding: 2em;
   background-color: #00000070;
   width: 100%;
   box-sizing: border-box;
@@ -12,7 +13,7 @@
 
 .Scores h2 {
   color: white;
-  margin-bottom: 0;
+  margin: 0;
   font-weight: 400;
 }
 
