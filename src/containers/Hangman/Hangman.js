@@ -178,9 +178,9 @@ class Hangman extends Component {
     })
   }
 
-  viewScores = () => {
+  submitScore = () => {
     const scoreData = {
-      user: this.state.user,
+      user: this.state.user.toUpperCase(),
       score: this.state.score
     }
 
@@ -194,7 +194,7 @@ class Hangman extends Component {
 
   render() {
     console.log("[Hangman.js] - render()")
-    const buttonClickAction = this.gameOver() ? this.viewScores : this.nextWord
+    const buttonClickAction = this.gameOver() ? this.submitScore : this.nextWord
     const buttonWording = this.gameOver() ? "SUBMIT SCORE" : "NEXT WORD"
     const selectLetterOrButton = (!this.state.currentWordActive || this.state.wordWon 
       ? <Button 

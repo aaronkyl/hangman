@@ -12,7 +12,7 @@ class LandingPage extends Component {
   }
 
   usernameHandler = (username) => {
-    this.setState({username: username.toUpperCase()})
+    this.setState({username: username})
   }
 
   difficultyHandler = (difficulty) => {

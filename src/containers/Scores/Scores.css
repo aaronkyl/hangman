@@ -25,7 +25,7 @@
   align-items: center;
 }
 
-.TBody, .THead {
+.TBody {
   width: 60%;
   min-width: 500px;
   box-sizing: border-box;
@@ -35,6 +35,10 @@
 .THead {
   display: flex;
   color: white;
+  width: 60%;
+  min-width: 500px;
+  box-sizing: border-box;
+  padding-bottom: .25em;
 }
 
 .THead h3:first-child {

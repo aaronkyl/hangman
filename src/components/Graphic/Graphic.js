@@ -19,7 +19,7 @@ const graphic = (props) => {
   if (props.wordWon) {
     message = "You saved me!" 
   } else if (props.wordLost) {
-    message = props.user + " why..."
+    message = props.user + ", why..."
   }
 
   return (
