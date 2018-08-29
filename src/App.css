@@ -8,7 +8,8 @@
 }
 
 .H1 {
-  font-family: 'Cinzel Decorative', cursive;
+  font-family: 'Frijole', 'Cinzel Decorative', cursive;
+  font-weight: 400;
   font-size: 3.5em;
   letter-spacing: .025em;
   color: white;
@@ -30,8 +31,9 @@
   margin: auto;
   min-height: 100vh;
   background-color: #4e6158;
-  border-right: 25px solid #214f7b;
-  border-left: 25px solid #214f7b;
+  outline: 25px double #214f7b;
+  border-right: 10px solid #e8f3fe;
+  border-left: 10px solid #e8f3fe;
   position: relative;
 }
 
