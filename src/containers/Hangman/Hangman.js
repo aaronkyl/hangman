@@ -16,7 +16,7 @@ class Hangman extends Component {
     user: null,
     gameDifficulty: null,
     letters: {},
-    gameLength: 10,
+    gameLength: 5,
     incorrectGuessesAllowed: 6,
     words: [],
     currentWordIndex: 0,
