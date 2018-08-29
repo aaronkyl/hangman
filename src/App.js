@@ -13,7 +13,7 @@ class App extends Component {
     return (
       <div className={classes.App}>
         <Link to="/" className={classes.Link}><h1 className={classes.H1}>SNOWMAN SAVER</h1></Link>
-        <div className={classes.GroundDiv}></div>
+        <div className={classes.SkyDiv}></div>
         <Switch>
           <Route path='/' exact render={() => <LandingPage beginGame={this.beginGameHandler} />} />
           <Route path='/game' component={Hangman} />

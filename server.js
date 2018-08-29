@@ -4,7 +4,7 @@ const path = require('path')              //Navigate to build folder
 const axios = require('axios')
 
 // instruct Express to serve the files in the build folder
-app.use(express.static(path.join(__dirname, 'build')))
+app.use(express.static(path.join(__dirname, 'public')))
 
 // API to get words from words API and avoid CORS issue that occures
 // when this external API is queried directly from the React app
@@ -18,7 +18,8 @@ app.get('/api/words', (req, res) => {
 
 // default to send all unknown requests a copy of our React app
 app.get('*', (req,res) => {
-  res.sendFile(path.join(__dirname, 'build/index.html'))
+  // res.sendFile(path.join(__dirname, 'build/index.html'))
+  res.sendFile(path.join(__dirname, 'public/index.html'))
  });
 
 const port = process.env.PORT || 3000
