@@ -1,0 +1,17 @@
+.SmallBubble {
+  border-radius: 50%;
+  background-color: white;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+}
+
+.Bubble1 {
+  top: 40px;
+  left: 40px;
+}
+
+.Bubble2 {
+  top: 60px;
+  left: 70px;
+}

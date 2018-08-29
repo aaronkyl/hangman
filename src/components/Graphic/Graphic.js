@@ -1,5 +1,6 @@
 import React from 'react'
 import classes from './Graphic.css'
+import SpeechBubble from './SpeechBubble/SpeechBubble'
 
 const graphic = (props) => {
   const sunRays = []
@@ -13,10 +14,20 @@ const graphic = (props) => {
   const puddleClasses = props.currentWordActive || props.wordWon ? [classes.Puddle, classes['Puddle' + props.incorrectGuesses]] : []
   const guessesRemaining = props.incorrectGuessesAllowed - props.incorrectGuesses
 
+  let message = "I'm a snowman!"
+  
+  if (props.wordWon) {
+    message = "You saved me!" 
+  } else if (props.wordLost) {
+    message = props.user + " why..."
+  }
+
   return (
   <div className={classes.Graphic}>
     <div className={classes.SnowmanDiv}>
-      <div className={snowmanClasses.join(' ')}></div>
+      <div className={snowmanClasses.join(' ')}>
+        <SpeechBubble wordWon={props.wordWon} wordLost={props.wordLost}>{message}</SpeechBubble>
+      </div>
     </div>
     <div className={classes.PuddleDiv}>
       <div className={puddleClasses.join(' ')}></div>

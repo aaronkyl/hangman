@@ -25,9 +25,14 @@
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: contain;
+  position: relative;
 }
 
 .Snowman0 {
+  background-image: url('../../assets/snowman.svg');
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: contain;
   height: 275px;
   width: 175px;
 }

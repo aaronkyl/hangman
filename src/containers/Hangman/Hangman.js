@@ -23,6 +23,7 @@ class Hangman extends Component {
     currentWordLetters: [],
     currentWordActive: true,
     wordWon: false,
+    wordLost: false,
     playerIncorrectGuesses: 0,
     score: 0
   }
@@ -140,6 +141,7 @@ class Hangman extends Component {
     if (this.wordLost()) {
       this.setState({
         currentWordActive: false,
+        wordLost: true
       })
     } else if (this.wordWon()) {
       this.setState({
@@ -171,6 +173,7 @@ class Hangman extends Component {
       currentWordLetters: nextWordLetters,
       currentWordActive: true,
       wordWon: false,
+      wordLost: false,
       playerIncorrectGuesses: 0
     })
   }
@@ -207,6 +210,8 @@ class Hangman extends Component {
           incorrectGuessesAllowed={this.state.incorrectGuessesAllowed} 
           currentWordActive={this.state.currentWordActive}
           wordWon={this.state.wordWon}
+          wordLost={this.state.wordLost}
+          user={this.state.user}
         />
         <Letters 
           letters={this.state.letters} 

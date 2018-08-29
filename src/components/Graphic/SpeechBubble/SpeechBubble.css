@@ -1,0 +1,19 @@
+.SpeechBubble {
+  position: absolute;
+  z-index: 11;
+  visibility: hidden;
+  height: 100px;
+  min-width: 200px;
+}
+
+.Congrats {
+  top: -70px;
+  left: -45px;
+  visibility: visible;
+}
+
+.Defeat {
+  top: -65px;
+  left: -25px;
+  visibility: visible;
+}
