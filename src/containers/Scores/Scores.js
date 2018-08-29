@@ -18,7 +18,7 @@ class Scores extends Component {
   sortScores = (rawScores) => {
     const scores = Object.keys(rawScores)
       .map(key => rawScores[key])
-      .sort((a, b) => a.score > b.score)
+      .sort((a, b) => a.score - b.score)
     this.setState({scores: scores})
   }
 
