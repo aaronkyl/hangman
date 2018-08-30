@@ -14,6 +14,13 @@ Preview with notes: https://wireframe.cc/PuHQGE
 
 ![desktop mockup](docs/img/mockup_desktop.png)
 
+## Progress Pics
+v0.5 on August 25th, 2018
+![version 0.5](docs/img/v0.5.png)
+
+v1.0 on August 28th, 2018
+![version 1.0](docs/img/v1.0.png)
+
 ## Basic Requirements
 - [X] Computer selects a secret word
 - [X] User is shown the number of letters in the word (underscores)
