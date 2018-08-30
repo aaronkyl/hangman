@@ -29,10 +29,8 @@ class Hangman extends Component {
   }
 
   componentDidMount() {
-    console.log("[Hangman.js] - componentDidMount()")
     const difficulty = this.props.location.state.difficulty > 0 ? '?difficulty=' + this.props.location.state.difficulty : ''
     const user = this.props.location.state.username ? this.props.location.state.username : 'Jane Smith'
-    console.log('/api/words')
     axios.get('/api/words' + difficulty)
       .then(response => {
         // response.data is a newline separated string
@@ -193,7 +191,6 @@ class Hangman extends Component {
   }
 
   render() {
-    console.log("[Hangman.js] - render()")
     const buttonClickAction = this.gameOver() ? this.submitScore : this.nextWord
     const buttonWording = this.gameOver() ? "SUBMIT SCORE" : "NEXT WORD"
     const selectLetterOrButton = (!this.state.currentWordActive || this.state.wordWon 

@@ -4,7 +4,6 @@ import Letter from './Letter/Letter'
 import classes from './Letters.css'
 
 const letters = (props) => {
-  console.log("[Letters.js]")
   const letters = Object.keys(props.letters)
     .map(letter => {
       return (

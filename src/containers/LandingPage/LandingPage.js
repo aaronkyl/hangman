@@ -31,7 +31,6 @@ class LandingPage extends Component {
   }
 
   render() {
-    console.log("[LandingPage.js] - render()")
     return (
       <div className={classes.LandingPage}>
         <p className={classes.P}>Can you save the snowman for five whole turns?</p>

@@ -41,14 +41,23 @@
   padding-bottom: .25em;
 }
 
-.THead h3:first-child {
+.THead tr {
+  width: 100%;
+}
+
+.THead tr td {
+  width: 100%;
+  display: flex;
+}
+
+.THead td h3:first-child {
   width: 40%;
   letter-spacing: .1em;
   text-align: right;
   font-weight: 400;
 }
 
-.THead h3:not(:first-child) {
+.THead td h3:not(:first-child) {
   width: 60%;
   letter-spacing: .1em;
   font-weight: 400;

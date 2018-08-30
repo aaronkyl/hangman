@@ -31,8 +31,13 @@ class Scores extends Component {
         <h2>Least incorrect guesses wins!</h2>
         <table className={classes.Table}>
           <thead className={classes.THead}>
-            <h3>NAME</h3>
-            <h3>SCORE</h3>
+            <tr>
+              <td>
+                <h3>NAME</h3>
+                <h3>SCORE</h3>
+              </td>
+            </tr>
+            
           </thead>
           <tbody className={classes.TBody}>
             {scores}
