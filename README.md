@@ -2,7 +2,12 @@
 Hangman game built with React, Express, Nodejs, and Firebase for the database. FERN stack?
 
 ## Installation
-
+1. Download project files
+2. In terminal window, cd to project folder
+3. Type `npm i` and hit enter to install all dependencies
+4. Type `npm run build` and hit enter to compile the game
+5. Type `node rungame.js` to load the game
+6. Open a browser and go to http://localhost:5000 to play!
 
 ## Wireframe
 Preview with notes: https://wireframe.cc/PuHQGE
