@@ -13,9 +13,18 @@
 
 .P {
   width: 100%;
-  font-size: 1.5em;
+  font-size: 1.25em;
   color: #e8f3fe;
   letter-spacing: .1em;
+  font-weight: 300;
+}
+
+.P:first-child {
+  margin-bottom: 0.5em;
+}
+
+.P:nth-child(2) {
+  margin-top: 0;
 }
 
 .Label {
@@ -43,7 +52,7 @@
 .DifficultyDiv {
   max-width: 500px;
   margin: auto;
-  margin-right: 84px;
+  margin-left: 97px;
   display: flex;
   justify-content: space-around;
   align-items: center;
