@@ -32,3 +32,13 @@
 .Guessed:hover {
   background-color: #ccc;
 }
+
+.InWord, .InWord:hover {
+  background-color: #6799ff;
+  color: white;
+}
+
+.NotInWord, .NotInWord:hover {
+  background-color: #ff9a2a;
+  color: white;
+}

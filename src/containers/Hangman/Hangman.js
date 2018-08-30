@@ -42,7 +42,7 @@ class Hangman extends Component {
       })
       .then(words => {
         const wordLetters = this.initializeWord(words[this.state.currentWordIndex])
-        const letters = this.initializeLetters()
+        const letters = this.initializeLetters(wordLetters)
         this.setState({
           user: user,
           gameDifficulty: difficulty,
@@ -76,34 +76,39 @@ class Hangman extends Component {
     return splitWord
   }
 
-  initializeLetters = () => {
-    const letters = {
-      'A': false,
-      'B': false,
-      'C': false,
-      'D': false,
-      'E': false,
-      'F': false,
-      'G': false,
-      'H': false,
-      'I': false,
-      'J': false,
-      'K': false,
-      'L': false,
-      'M': false,
-      'N': false,
-      'O': false,
-      'P': false,
-      'Q': false,
-      'R': false,
-      'S': false,
-      'T': false,
-      'U': false,
-      'V': false,
-      'W': false,
-      'X': false,
-      'Y': false,
-      'Z': false
+  initializeLetters = (nextWordLetters) => {
+    let letters = {
+      'A': {guessed: false, inWord: false},
+      'B': {guessed: false, inWord: false},
+      'C': {guessed: false, inWord: false},
+      'D': {guessed: false, inWord: false},
+      'E': {guessed: false, inWord: false},
+      'F': {guessed: false, inWord: false},
+      'G': {guessed: false, inWord: false},
+      'H': {guessed: false, inWord: false},
+      'I': {guessed: false, inWord: false},
+      'J': {guessed: false, inWord: false},
+      'K': {guessed: false, inWord: false},
+      'L': {guessed: false, inWord: false},
+      'M': {guessed: false, inWord: false},
+      'N': {guessed: false, inWord: false},
+      'O': {guessed: false, inWord: false},
+      'P': {guessed: false, inWord: false},
+      'Q': {guessed: false, inWord: false},
+      'R': {guessed: false, inWord: false},
+      'S': {guessed: false, inWord: false},
+      'T': {guessed: false, inWord: false},
+      'U': {guessed: false, inWord: false},
+      'V': {guessed: false, inWord: false},
+      'W': {guessed: false, inWord: false},
+      'X': {guessed: false, inWord: false},
+      'Y': {guessed: false, inWord: false},
+      'Z': {guessed: false, inWord: false}
+    }
+    for (let i = 0, l = nextWordLetters.length; i < l; i++) {
+      console.log(letters)
+      const currentLetter = nextWordLetters[i].letter
+      letters[currentLetter].inWord = true
     }
     return letters
   }
@@ -113,7 +118,7 @@ class Hangman extends Component {
     let incorrectGuesses = this.state.playerIncorrectGuesses 
     let score = this.state.score
     // Update letters tracker to show letter has been guessed
-    letters[letter] = true
+    letters[letter].guessed = true
     // Update current word's letters to show guessed letter if in word
     // and update incorrect guess number if it is not in the word
     const currentWordLetters = this.state.currentWordLetters
@@ -135,7 +140,6 @@ class Hangman extends Component {
   }
 
   determineWordStatus = () => {
-
     if (this.wordLost()) {
       this.setState({
         currentWordActive: false,
@@ -163,8 +167,8 @@ class Hangman extends Component {
 
   nextWord = () => {
     const nextWordIndex = this.state.currentWordIndex + 1
-    const letters = this.initializeLetters()
     const nextWordLetters = this.initializeWord(this.state.words[nextWordIndex])
+    const letters = this.initializeLetters(nextWordLetters)
     this.setState({
       letters: letters,
       currentWordIndex: nextWordIndex,

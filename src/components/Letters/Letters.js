@@ -10,7 +10,8 @@ const letters = (props) => {
         <Letter 
           key={letter} 
           letter={letter} 
-          guessed={props.letters[letter]} 
+          guessed={props.letters[letter].guessed} 
+          inWord={props.letters[letter].inWord}
           clicked={props.clicked} 
           selectable={props.selectable} />
       )
