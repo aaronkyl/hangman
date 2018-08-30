@@ -33,7 +33,7 @@ class LandingPage extends Component {
   render() {
     return (
       <div className={classes.LandingPage}>
-        <p className={classes.P}>Can you save the snowman for five whole turns?</p>
+        <p className={classes.P}>Can you save the snowman five times?</p>
         <p className={classes.P}>Enter your name and select a difficulty level to begin!</p>
         <p className={classes.Label}>USERNAME</p>
         <input className={classes.Username} type="text" value={this.state.username} onChange={(e) => this.usernameHandler(e.target.value)} />
