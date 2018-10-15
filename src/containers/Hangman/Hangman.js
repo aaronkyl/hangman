@@ -25,7 +25,8 @@ class Hangman extends Component {
     wordWon: false,
     wordLost: false,
     playerIncorrectGuesses: 0,
-    score: 0
+    score: 0,
+    hints: 5
   }
 
   componentDidMount() {
@@ -146,9 +147,12 @@ class Hangman extends Component {
         wordLost: true
       })
     } else if (this.wordWon()) {
+      const earnedHints = this.state.incorrectGuessesAllowed - this.state.playerIncorrectGuesses
+      const newHintsTotal = this.state.hints + earnedHints
       this.setState({
         currentWordActive: false,
-        wordWon: true
+        wordWon: true,
+        hints: newHintsTotal
       })
     }
   }
@@ -183,7 +187,7 @@ class Hangman extends Component {
   submitScore = () => {
     const scoreData = {
       user: this.state.user.toUpperCase(),
-      score: this.state.score
+      score: this.state.score - this.state.hints
     }
 
     axios.post('https://snowmansaver-fe545.firebaseio.com/scores.json', scoreData)
@@ -192,6 +196,22 @@ class Hangman extends Component {
           pathname: '/scores'
         })
       })
+  }
+
+  hintHandler = () => {
+    // unguessed letter in the word
+    // pass to letterGuessHandler
+    const unguessedLetters = this.state.currentWordLetters.filter(letter => letter.guessed === false)
+    console.log(unguessedLetters)
+    const indexOfHint = Math.round(Math.random() * unguessedLetters.length)
+    console.log(indexOfHint)
+    // TODO check index is valid
+    const hintLetter = unguessedLetters[indexOfHint].letter
+    console.log(hintLetter)
+    this.letterGuessHandler(hintLetter)
+    this.setState({
+      hints: this.state.hints - 1
+    })
   }
 
   render() {
@@ -231,6 +251,8 @@ class Hangman extends Component {
       <div className={classes.Hangman}>
         <div className={classes.GroundDiv}></div>
         <PlayArea>
+          {this.state.hints}
+          <button onClick={this.hintHandler}>USE HINT</button>
           {this.state.words.length ? hangman : <Spinner />}
         </PlayArea>
       </div>
